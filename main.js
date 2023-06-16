@@ -2,6 +2,12 @@ import gsap from 'gsap';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
+const slides = document.querySelectorAll('.swiper__slide');
+const progress = document.querySelector('.header__progress');
+
+/**
+ ** swiper
+ **/
 const swiper = new Swiper('.swiper', {
   centeredSlides: true,
   slidesPerView: 2,
@@ -28,12 +34,13 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
-const progress = document.querySelector('.header__progress');
 swiper.on('progress', ({ progressLoop }) => {
   progress.textContent = `( ${Math.floor(progressLoop * 100)} )`;
 });
 
-const slides = document.querySelectorAll('.swiper__slide');
+/**
+ ** animation triggers
+ **/
 slides.forEach((slide) => {
   const title = slide.querySelector('.swiper__title');
 
@@ -58,6 +65,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // shades.style.animationPlayState = 'running';
     image.style.animationPlayState = 'running';
+  });
+});
+
+/**
+ ** mouse animation
+ **/
+
+let xTo = gsap.quickTo('.mouse-cursor', 'x', { duration: 0.6, ease: 'power3' }),
+  yTo = gsap.quickTo('.mouse-cursor', 'y', { duration: 0.6, ease: 'power3' });
+
+window.addEventListener('mousemove', (e) => {
+  xTo(e.clientX);
+  yTo(e.clientY);
+});
+
+slides.forEach((slide) => {
+  slide.addEventListener('mouseenter', () => {
+    gsap.to('.mouse-cursor', { scale: 0.2, duration: 0.3 });
+  });
+
+  slide.addEventListener('mouseleave', () => {
+    gsap.to('.mouse-cursor', { scale: 1, duration: 0.3 });
   });
 });
 

@@ -85,6 +85,19 @@ body {
   }
 }
 
+.mouse-cursor {
+  background-color: orangered;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 .header {
   position: fixed;
   display: flex;
