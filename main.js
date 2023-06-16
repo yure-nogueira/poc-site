@@ -18,6 +18,7 @@ const swiper = new Swiper('.swiper', {
     eventsTarget: '.swiper',
     sensitivity: 0.35
   },
+  updateOnWindowResize: true,
   parallax: true,
   speed: 600,
   grabCursor: true,
