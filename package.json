@@ -1,0 +1,20 @@
+{
+  "name": "teste-6",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.63.3",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "gsap": "^3.12.1",
+    "locomotive-scroll": "^4.1.4",
+    "swiper": "^9.4.0"
+  }
+}
